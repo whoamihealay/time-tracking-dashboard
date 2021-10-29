@@ -13,10 +13,22 @@ const Profile = () => {
           <p className="name fs-500 fw-300">Jeremy Robson</p>
         </div>
       </div>
-      <div className="btn flex">
-        <button onClick={() => setDay("daily")}>Daily</button>
-        <button onClick={() => setDay("weekly")}>Weekly</button>
-        <button onClick={() => setDay("Monthly")}>Monthly</button>
+      <div className="btn-div flex">
+        <a href="d">
+          <button className="btn" onClick={() => setDay("daily")}>
+            Daily
+          </button>
+        </a>
+        <a href="w">
+          <button className="btn" onClick={() => setDay("weekly")}>
+            Weekly
+          </button>
+        </a>
+        <a href="m">
+          <button className="btn" onClick={() => setDay("Monthly")}>
+            Monthly
+          </button>
+        </a>
       </div>
     </div>
   );
