@@ -1,56 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ReactComponent as Work } from "./assets/icon-work.svg";
 
 import "./App.css";
 import Card from "./components/Card";
 import Profile from "./components/Profile";
+import CardContext from "./context/card/cardContext";
 
 function App() {
+  const cardContext = useContext(CardContext);
+
+  const { loading, data } = cardContext;
+
   return (
     <div className="App container flex">
       <Profile />
-      <Card
-        icon={<Work />}
-        title="Work"
-        timeframe="daily"
-        current="5"
-        previous="7"
-      />
-      <Card
-        icon={<Work />}
-        title="Work"
-        timeframe="daily"
-        current="5"
-        previous="7"
-      />
-      <Card
-        icon={<Work />}
-        title="Work"
-        timeframe="daily"
-        current="5"
-        previous="7"
-      />
-      <Card
-        icon={<Work />}
-        title="Work"
-        timeframe="daily"
-        current="5"
-        previous="7"
-      />
-      <Card
-        icon={<Work />}
-        title="Work"
-        timeframe="daily"
-        current="5"
-        previous="7"
-      />
-      <Card
-        icon={<Work />}
-        title="Work"
-        timeframe="daily"
-        current="5"
-        previous="7"
-      />
+      {data.map((data) => (
+        <Card key={data.id} data={data} />
+      ))}
     </div>
   );
 }
