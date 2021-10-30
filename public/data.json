@@ -1,6 +1,6 @@
 [
   {
-      "id": 1,
+      "id": 0,
     "title": "Work",
     "timeframes": {
       "daily": {
@@ -18,7 +18,7 @@
     }
   },
   {
-    "id": 2,
+    "id": 1,
     "title": "Play",
     "timeframes": {
       "daily": {
@@ -36,7 +36,7 @@
     }
   },
   {
-    "id": 3,
+    "id": 2,
     "title": "Study",
     "timeframes": {
       "daily": {
@@ -54,7 +54,7 @@
     }
   },
   {
-    "id": 4,
+    "id": 3,
     "title": "Exercise",
     "timeframes": {
       "daily": {
@@ -72,7 +72,7 @@
     }
   },
   {
-    "id": 5,
+    "id": 4,
     "title": "Social",
     "timeframes": {
       "daily": {
@@ -90,7 +90,7 @@
     }
   },
   {
-    "id": 6,
+    "id": 5,
     "title": "Self Care",
     "timeframes": {
       "daily": {
