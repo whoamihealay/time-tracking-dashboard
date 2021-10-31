@@ -16,7 +16,32 @@
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+        "src": "./static/media/icon-exercise.svg",
+        "sizes": "any"
+    },
+    {
+        "src": "./static/media/icon-play.svg",
+        "sizes": "any"
+    },
+    {
+        "src": "./static/media/icon-self-care.svg",
+        "sizes": "any"
+    },
+    {
+        "src": "./static/media/icon-social.svg",
+        "sizes": "any"
+    },
+    {
+        "src": "./static/media/icon-study.svg",
+        "sizes": "any"
+    },
+    {
+        "src": "./static/media/icon-work.svg",
+        "sizes": "any"
     }
+
   ],
   "start_url": ".",
   "display": "standalone",
