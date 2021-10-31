@@ -20,6 +20,7 @@ function App() {
             id: data.id,
             title: data.title,
             timeframes: data.timeframes,
+            background: data.background,
           };
         })
       );

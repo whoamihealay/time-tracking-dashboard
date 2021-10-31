@@ -42,8 +42,13 @@ const Card = ({ data, time }) => {
     info = <div></div>;
   }
 
+  const cardStyle = {
+    backgroundImage: `url(${data.background.icon})`,
+    backgroundColor: `${data.background.color}`,
+  };
+
   return (
-    <div className="card flex">
+    <div className="card flex" style={cardStyle}>
       <div className="card-info grid">
         <p className="fw-500 text-left title">{data.title}</p>
         <button className="btn btn-size">

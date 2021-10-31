@@ -9,12 +9,12 @@
   width: 100%;
   height: 10rem;
   flex-direction: column;
-  background-color: var(--clr-work);
+  background-color: "var(--clr-work)";
   margin-bottom: 0.5rem;
   gap: 0rem;
-  background-image: url("../assets/icon-work.svg");
   background-repeat: no-repeat;
-  background-position: 92% -13%;
+  background-position: 92% 0%;
+  background-size: 4.938rem;
 }
 
 .title {
