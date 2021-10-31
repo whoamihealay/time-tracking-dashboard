@@ -15,6 +15,10 @@
         "current": 103,
         "previous": 128
       }
+    },
+    "background": {
+        "icon": "http://localhost:3000/time-tracking-dashboard/static/media/icon-work.svg",
+        "color": "var(--clr-work)"
     }
   },
   {
@@ -33,6 +37,10 @@
         "current": 23,
         "previous": 29
       }
+    },
+    "background": {
+        "icon": "http://localhost:3000/time-tracking-dashboard/static/media/icon-play.svg",
+        "color": "var(--clr-play)"
     }
   },
   {
@@ -51,6 +59,10 @@
         "current": 13,
         "previous": 19
       }
+    },
+    "background": {
+        "icon": "http://localhost:3000/time-tracking-dashboard/static/media/icon-study.svg",
+        "color": "var(--clr-study)"
     }
   },
   {
@@ -69,6 +81,10 @@
         "current": 11,
         "previous": 18
       }
+    },
+    "background": {
+        "icon": "http://localhost:3000/time-tracking-dashboard/static/media/icon-exercise.svg",
+        "color": "var(--clr-exercice)"
     }
   },
   {
@@ -87,6 +103,10 @@
         "current": 21,
         "previous": 23
       }
+    },
+    "background": {
+        "icon": "http://localhost:3000/time-tracking-dashboard/static/media/icon-social.svg",
+        "color": "var(--clr-social)"
     }
   },
   {
@@ -105,6 +125,10 @@
         "current": 7,
         "previous": 11
       }
+    },
+    "background": {
+        "icon": "http://localhost:3000/time-tracking-dashboard/static/media/icon-self-care.svg",
+        "color": "var(--clr-selfcare)"
     }
   }
 ]
