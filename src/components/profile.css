@@ -13,7 +13,7 @@
   background-color: var(--clr-darkblue);
 }
 
-.profile button {
+.btn {
   background-color: transparent;
   color: var(--clr-desatblue);
   border: none;

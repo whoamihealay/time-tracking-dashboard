@@ -10,7 +10,6 @@ function App() {
 
   const getData = () => {
     axios.get("data.json").then(function (response) {
-      // setData(response.data);
       setData(
         response.data.map((data) => {
           return {
