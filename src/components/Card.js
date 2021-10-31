@@ -1,22 +1,9 @@
 import React from "react";
-import { useState } from "react";
-import PropTypes from "prop-types";
 import "./card.css";
 import ellipsis from "../assets/icon-ellipsis.svg";
 
-const Card = ({ data }) => {
-  const [time, setTime] = useState("weekly");
+const Card = ({ data, time }) => {
   let info;
-
-  const timeframe = () => {
-    if (time === "daily") {
-      setTime("weekly");
-    } else if (time === "weekly") {
-      setTime("monthly");
-    } else if (time === "monthly") {
-      setTime("daily");
-    }
-  };
 
   if (time === "daily") {
     info = (
@@ -25,7 +12,7 @@ const Card = ({ data }) => {
           {data.timeframes.daily.current}hrs
         </p>
         <p className="text-light fs-200 text-right previous">
-          Last - {data.timeframes.daily.previous}hrs
+          Yesterday - {data.timeframes.daily.previous}hrs
         </p>
       </div>
     );
@@ -36,38 +23,36 @@ const Card = ({ data }) => {
           {data.timeframes.weekly.current}hrs
         </p>
         <p className="text-light fs-200 text-right previous">
-          Last - {data.timeframes.weekly.previous}hrs
+          Last week - {data.timeframes.weekly.previous}hrs
         </p>
       </div>
     );
-  } else {
+  } else if (time === "monthly") {
     info = (
       <div className="times grid">
         <p className="text-left fs-600 fw-300 current">
           {data.timeframes.monthly.current}hrs
         </p>
         <p className="text-light fs-200 text-right previous">
-          Last - {data.timeframes.monthly.previous}hrs
+          Last month - {data.timeframes.monthly.previous}hrs
         </p>
       </div>
     );
+  } else {
+    info = <div></div>;
   }
 
   return (
     <div className="card flex">
       <div className="card-info grid">
         <p className="fw-500 text-left title">{data.title}</p>
-        <button className="btn btn-size" onClick={() => timeframe()}>
+        <button className="btn btn-size">
           <img src={ellipsis} alt="change timeframe" className="link" />
         </button>
         {info}
       </div>
     </div>
   );
-};
-
-Card.propTypes = {
-  data: PropTypes.object.isRequired,
 };
 
 export default Card;

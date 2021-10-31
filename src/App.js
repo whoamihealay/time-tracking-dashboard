@@ -7,6 +7,10 @@ import Profile from "./components/Profile";
 
 function App() {
   const [data, setData] = useState([]);
+  const [timeframe, setTimeframe] = useState("daily");
+  const [dailyBtn, setDailybtn] = useState();
+  const [weeklyBtn, setWeeklybtn] = useState();
+  const [monthlyBtn, setMonthlybtn] = useState();
 
   const getData = () => {
     axios.get("data.json").then(function (response) {
@@ -22,15 +26,42 @@ function App() {
     });
   };
 
+  const daily = () => {
+    setTimeframe("daily");
+    setDailybtn("white");
+    setWeeklybtn("");
+    setMonthlybtn("");
+  };
+
+  const weekly = () => {
+    setTimeframe("weekly");
+    setDailybtn("");
+    setWeeklybtn("white");
+    setMonthlybtn("");
+  };
+  const monthly = () => {
+    setTimeframe("monthly");
+    setDailybtn("");
+    setWeeklybtn("");
+    setMonthlybtn("white");
+  };
+
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   return (
     <div className="App container flex">
-      <Profile />
+      <Profile
+        daily={daily}
+        weekly={weekly}
+        monthly={monthly}
+        dailyBtn={dailyBtn}
+        weeklyBtn={weeklyBtn}
+        monthlyBtn={monthlyBtn}
+      />
       {data.map((data) => (
-        <Card key={data.id} data={data} />
+        <Card key={data.id} data={data} time={timeframe} />
       ))}
     </div>
   );

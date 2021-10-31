@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 import jeremy from "../assets/image-jeremy.png";
 import "./profile.css";
+import Button from "./Button";
 
-const Profile = () => {
-  const [day, setDay] = useState("daily");
-
+const Profile = ({
+  daily,
+  weekly,
+  monthly,
+  dailyBtn,
+  weeklyBtn,
+  monthlyBtn,
+}) => {
   return (
     <div className="profile flex bg-dark">
       <div className="profile-upper flex bg-blue">
@@ -16,15 +22,9 @@ const Profile = () => {
         </div>
       </div>
       <div className="btn-div flex">
-        <button className="btn" onClick={() => setDay("daily")}>
-          Daily
-        </button>
-        <button className="btn" onClick={() => setDay("weekly")}>
-          Weekly
-        </button>
-        <button className="btn" onClick={() => setDay("Monthly")}>
-          Monthly
-        </button>
+        <Button text="Daily" onClick={daily} color={dailyBtn} />
+        <Button text="Weekly" onClick={weekly} color={weeklyBtn} />
+        <Button text="Monthly" onClick={monthly} color={monthlyBtn} />
       </div>
     </div>
   );
