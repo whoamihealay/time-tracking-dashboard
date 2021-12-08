@@ -7,24 +7,14 @@ import Profile from "./components/Profile";
 
 function App() {
   const [data, setData] = useState([]);
-  const [timeframe, setTimeframe] = useState("daily");
+  const [timeframe, setTimeframe] = useState("");
   const [dailyBtn, setDailybtn] = useState("white");
-  const [weeklyBtn, setWeeklybtn] = useState();
-  const [monthlyBtn, setMonthlybtn] = useState();
+  const [weeklyBtn, setWeeklybtn] = useState("");
+  const [monthlyBtn, setMonthlybtn] = useState("");
 
-  const getData = () => {
-    axios.get("data.json").then(function (response) {
-      setData(
-        response.data.map((data) => {
-          return {
-            id: data.id,
-            title: data.title,
-            timeframes: data.timeframes,
-            background: data.background,
-          };
-        })
-      );
-    });
+  const getData = async () => {
+    const res = await axios.get("/time-tracking-dashboard/data.json");
+    setData(res.data);
   };
 
   const daily = () => {
@@ -47,24 +37,39 @@ function App() {
     setMonthlybtn("white");
   };
 
+  const reset = () => {
+    setTimeframe("");
+    setDailybtn("");
+    setWeeklybtn("");
+    setMonthlybtn("");
+  };
+
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="App container flex">
-      <Profile
-        daily={daily}
-        weekly={weekly}
-        monthly={monthly}
-        dailyBtn={dailyBtn}
-        weeklyBtn={weeklyBtn}
-        monthlyBtn={monthlyBtn}
-      />
-      {data.map((data) => (
-        <Card key={data.id} data={data} time={timeframe} />
-      ))}
-    </div>
+    <>
+      <div className="App container flex">
+        <Profile
+          daily={daily}
+          weekly={weekly}
+          monthly={monthly}
+          dailyBtn={dailyBtn}
+          weeklyBtn={weeklyBtn}
+          monthlyBtn={monthlyBtn}
+        />
+        {data.map((data) => (
+          <Card
+            key={data.id}
+            data={data}
+            resetGenTime={reset}
+            genTime={timeframe}
+          />
+        ))}
+      </div>
+    </>
   );
 }
 

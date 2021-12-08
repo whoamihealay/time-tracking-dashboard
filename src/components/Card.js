@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./card.css";
 import ellipsis from "../assets/icon-ellipsis.svg";
 
-const Card = ({ data, time }) => {
+const Card = ({ data, resetGenTime, genTime }) => {
+  const [time, setTime] = useState("daily");
   let info;
+
+  if (genTime !== "" && genTime !== time) {
+    setTime(genTime);
+  }
 
   if (time === "daily") {
     info = (
@@ -42,21 +47,34 @@ const Card = ({ data, time }) => {
     info = <div></div>;
   }
 
+  const cardBtn = () => {
+    resetGenTime();
+    if (time === "daily") {
+      setTime("weekly");
+    } else if (time === "weekly") {
+      setTime("monthly");
+    } else if (time === "monthly") {
+      setTime("daily");
+    }
+  };
+
   const cardStyle = {
     backgroundImage: `url(${data.background.icon})`,
     backgroundColor: `${data.background.color}`,
   };
 
   return (
-    <div className="card flex" style={cardStyle}>
-      <div className="card-info grid">
-        <p className="fw-500 text-left title">{data.title}</p>
-        <button className="btn btn-size">
-          <img src={ellipsis} alt="change timeframe" className="link" />
-        </button>
-        {info}
+    <>
+      <div className="card flex" style={cardStyle}>
+        <div className="card-info grid">
+          <p className="fw-500 text-left title">{data.title}</p>
+          <button className="btn btn-size" onClick={cardBtn}>
+            <img src={ellipsis} alt="change timeframe" className="link" />
+          </button>
+          {info}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
