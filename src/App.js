@@ -12,6 +12,7 @@ function App() {
   const [weeklyBtn, setWeeklybtn] = useState("");
   const [monthlyBtn, setMonthlybtn] = useState("");
 
+  // Sends requets to get data from file
   const getData = async () => {
     const res = await axios.get("/time-tracking-dashboard/data.json");
     setData(res.data);
@@ -50,26 +51,25 @@ function App() {
   }, []);
 
   return (
-    <>
-      <div className="App container flex">
-        <Profile
-          daily={daily}
-          weekly={weekly}
-          monthly={monthly}
-          dailyBtn={dailyBtn}
-          weeklyBtn={weeklyBtn}
-          monthlyBtn={monthlyBtn}
+    <main className="App container flex">
+      <h1 className="sr-only">Time tracking dashboard</h1>
+      <Profile
+        daily={daily}
+        weekly={weekly}
+        monthly={monthly}
+        dailyBtn={dailyBtn}
+        weeklyBtn={weeklyBtn}
+        monthlyBtn={monthlyBtn}
+      />
+      {data.map((data) => (
+        <Card
+          key={data.id}
+          data={data}
+          resetGenTime={reset}
+          genTime={timeframe}
         />
-        {data.map((data) => (
-          <Card
-            key={data.id}
-            data={data}
-            resetGenTime={reset}
-            genTime={timeframe}
-          />
-        ))}
-      </div>
-    </>
+      ))}
+    </main>
   );
 }
 

@@ -6,10 +6,12 @@ const Card = ({ data, resetGenTime, genTime }) => {
   const [time, setTime] = useState("daily");
   let info;
 
+  // sets all cards to the same timeframe depending on the onClick button. The two conditions prevents Too many renders error.
   if (genTime !== "" && genTime !== time) {
     setTime(genTime);
   }
 
+  // Returns each timeframe card info. To be refactored.
   if (time === "daily") {
     info = (
       <div className="times grid">
