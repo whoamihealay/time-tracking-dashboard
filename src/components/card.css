@@ -7,9 +7,11 @@
   min-width: 18.75rem;
   max-width: 23rem;
   width: 100%;
+  text-align: right;
+  margin-right: 2rem;
   height: 10rem;
   flex-direction: column;
-  background-color: "var(--clr-work)";
+  background-color: var(--clr-work);
   margin-bottom: 0.5rem;
   gap: 0rem;
   background-repeat: no-repeat;

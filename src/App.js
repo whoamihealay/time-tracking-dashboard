@@ -8,7 +8,7 @@ import Profile from "./components/Profile";
 function App() {
   const [data, setData] = useState([]);
   const [timeframe, setTimeframe] = useState("daily");
-  const [dailyBtn, setDailybtn] = useState();
+  const [dailyBtn, setDailybtn] = useState("white");
   const [weeklyBtn, setWeeklybtn] = useState();
   const [monthlyBtn, setMonthlybtn] = useState();
 
